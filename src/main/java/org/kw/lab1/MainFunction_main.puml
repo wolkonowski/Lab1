@@ -1,0 +1,23 @@
+@startuml
+participant Actor
+Actor -> MainFunction : main
+activate MainFunction
+MainFunction -> Client : new
+activate Client
+Client --> MainFunction
+
+MainFunction -> Order : new
+activate Order
+Order --> MainFunction
+deactivate Order
+deactivate Client
+MainFunction -> Client : new
+activate Client
+Client --> MainFunction
+MainFunction -> Order : new
+activate Order
+Order --> MainFunction
+deactivate Order
+deactivate Client
+return
+@enduml

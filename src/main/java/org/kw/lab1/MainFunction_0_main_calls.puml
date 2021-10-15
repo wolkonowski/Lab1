@@ -1,0 +1,163 @@
+@startuml
+
+/' diagram meta data start
+config=CallConfiguration;
+{
+  "rootMethod": "org.kw.lab1.MainFunction#main(String[])",
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": ""
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": true,
+    "cutInterfaceStructures": true,
+    "cutDataStructures": true,
+    "cutGetterAndSetter": true,
+    "cutConstructors": false
+  },
+  "graphTraversal": {
+    "forwardDepth": 3,
+    "backwardDepth": 3,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false // root node is included
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showMethodParametersTypes": false,
+    "showMethodParametersNames": false,
+    "showMethodReturnType": false,
+    "showPackageLevels": 3,
+    "showCallOrder": false,
+    "edgeMode": "TypesAndMethods", // TypesOnly, MethodsOnly, TypesAndMethods, MethodsAndDirectTypeUsage
+    "showDetailedClassStructure": false
+  },
+  "rootClass": "org.kw.lab1.MainFunction"
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="LR"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_3436 { 
+   	label=kw
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_368689274 { 
+   	label=lab1
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   Client1813849476[
+	label="(C)Client"
+	style=filled
+	shape=rect
+	fillcolor="#FFFFFF"
+];
+
+subgraph cluster_1258543203 { 
+   	label=Client
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   Client1813849476XXXClient1808118735[
+	label="+ Client()"
+	style=filled
+	fillcolor=white
+	tooltip="Client
+
+&#10;  Creates a Client object with specified name.&#10;  @param name the name of the customer&#10; "
+	fontcolor=darkgreen
+];
+} 
+
+subgraph cluster_1553362628 { 
+   	label=Order
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   Order1813849476XXXOrder726650992[
+	label="+ Order()"
+	style=filled
+	fillcolor=white
+	tooltip="Order
+
+&#10;  Create an order with specified customer and name of an ordered object.&#10;  @param customer client who made the order&#10;  @param obj name of the ordered object&#10; "
+	fontcolor=darkgreen
+];
+} 
+
+subgraph cluster_1691329283 { 
+   	label=MainFunction
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   MainFunction1813849476XXXmain1859653459[
+	label="+ main()"
+	style=filled
+	fillcolor=white
+	tooltip="MainFunction
+
+&#10; &#10;  @param args args parsed from command line&#10; "
+	penwidth=4
+	fontcolor=darkgreen
+];
+} 
+} 
+} 
+
+'edges    
+MainFunction1813849476XXXmain1859653459 -> Client1813849476XXXClient1808118735;
+MainFunction1813849476XXXmain1859653459 -> Order1813849476XXXOrder726650992;
+Order1813849476XXXOrder726650992 -> Client1813849476[label=customer, style=dashed];
+    
+}
+@enduml
