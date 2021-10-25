@@ -1,0 +1,46 @@
+@startuml
+participant Actor
+Actor -> MainFunction : main
+activate MainFunction
+MainFunction -> ArrayList : new
+activate ArrayList
+ArrayList --> MainFunction
+deactivate ArrayList
+MainFunction -> Client : new
+activate Client
+Client --> MainFunction
+deactivate Client
+MainFunction -> Order : new
+activate Order
+Order --> MainFunction
+deactivate Order
+MainFunction -> List : add
+activate List
+List --> MainFunction
+deactivate List
+MainFunction -> Client : new
+activate Client
+Client --> MainFunction
+deactivate Client
+MainFunction -> Order : new
+activate Order
+Order --> MainFunction
+deactivate Order
+MainFunction -> List : add
+activate List
+List --> MainFunction
+deactivate List
+MainFunction -> Order : getInfo
+activate Order
+Order -> Client : getName
+activate Client
+Client --> Order
+deactivate Client
+Order --> MainFunction
+deactivate Order
+MainFunction -> PrintStream : println
+activate PrintStream
+PrintStream --> MainFunction
+deactivate PrintStream
+return
+@enduml
