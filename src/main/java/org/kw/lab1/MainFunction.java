@@ -15,7 +15,8 @@ public final class MainFunction {
      * @param args args parsed from command line
      */
 
-    public static void main(final String[] args) {
+    public static void main(final String[] args)
+    {
         List<Order> list = new ArrayList<>();
         Client bob = new Client("Bob");
         Order ord1 = new Order(bob, "chair");
